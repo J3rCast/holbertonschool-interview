@@ -27,6 +27,7 @@ def canUnlockAll(boxes):
         for key in keys:
             if keys[key] == True:
                 for k in boxes[key]:
-                    keys[k] = True
+                    if k < len(boxes):
+                        keys[k] = True
             
     return check_open(keys)
