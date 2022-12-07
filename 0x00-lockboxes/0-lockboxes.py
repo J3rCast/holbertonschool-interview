@@ -17,7 +17,7 @@ def check_open(keys):
     """check if all keys exists"""
 
     for key in keys:
-        if keys[key] == False:
+        if keys[key] is False:
             return False
     return True
 
@@ -28,7 +28,7 @@ def canUnlockAll(boxes):
 
     for key in keys:
         for key in keys:
-            if keys[key] == True:
+            if keys[key] is True:
                 for k in boxes[key]:
                     if k < len(boxes):
                         keys[k] = True
