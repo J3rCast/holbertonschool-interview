@@ -3,37 +3,19 @@
 be opened by the keys inside them"""
 
 
-def set_false(li):
-    """set all keys to false"""
-    keys = {}
-    for key in range(li):
-        keys.update({key: False})
-
-    keys[0] = True
-    return keys
-
-
-def check_open(keys):
-    """check if all keys exists"""
-
-    for key in keys:
-        if keys[key] is False:
-            return False
-    return True
-
-
 def canUnlockAll(boxes):
     """Checks if all boxes can be unlocked"""
-    keys = set_false(len(boxes))
+    keys = [0]
 
-    if not boxes:
-        return False
-
-    for key in keys:
-        for key in keys:
-            if keys[key] is True:
-                for k in boxes[key]:
-                    if k < len(boxes):
-                        keys[k] = True
-
-    return check_open(keys)
+    for idx, box in enumerate(boxes):
+        if not box:
+            continue
+        for key in box:
+            if key not in keys and key != idx and key < len(boxes):
+                keys.append(key)
+        
+    if len(keys) == len(boxes):
+        return True
+    
+    return False
+  
