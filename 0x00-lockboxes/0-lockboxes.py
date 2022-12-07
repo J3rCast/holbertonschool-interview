@@ -12,12 +12,15 @@ def set_false(li):
     keys[0] = True
     return keys
 
+
 def check_open(keys):
     """check if all keys exists"""
+
     for key in keys:
         if keys[key] == False:
             return False
     return True
+
 
 def canUnlockAll(boxes):
     """Checks if all boxes can be unlocked"""
@@ -29,5 +32,5 @@ def canUnlockAll(boxes):
                 for k in boxes[key]:
                     if k < len(boxes):
                         keys[k] = True
-            
+
     return check_open(keys)
