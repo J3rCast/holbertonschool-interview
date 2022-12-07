@@ -26,6 +26,9 @@ def canUnlockAll(boxes):
     """Checks if all boxes can be unlocked"""
     keys = set_false(len(boxes))
 
+    if not boxes:
+        return False
+
     for key in keys:
         for key in keys:
             if keys[key] is True:
