@@ -19,7 +19,7 @@ def minOperations(n):
     my_num = 1
     adition = 1
 
-    if is_prime(n) == 0:
+    if is_prime(n) == 0 or type(n) is not int:
         return n
 
     num_operations = 1
