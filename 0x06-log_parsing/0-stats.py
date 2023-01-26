@@ -5,14 +5,20 @@ import ipaddress
 from time import sleep
 
 
+data = sys.stdin
+correct_method = "\"GET /projects/260 HTTP/1.1\""
+correct_status = [200, 301, 400, 401, 403, 404, 405, 500]
+final_size = 0
+status_dict = {}
+
+def print_metrics():
+    print("File size: {}".format(final_size))
+    for i in correct_status:
+        if (i in status_dict):
+            print("{}: {}".format(i, status_dict[i]))
+
 if __name__ == "__main__":
     try:
-        data = sys.stdin
-        correct_method = "\"GET /projects/260 HTTP/1.1\""
-        correct_status = [200, 301, 400, 401, 403, 404, 405, 500]
-        final_size = 0
-        status_dict = {}
-
         for idx, i in enumerate(data):
             splited = i.split(" ")
 
@@ -26,27 +32,22 @@ if __name__ == "__main__":
             try:
                 ipaddress.IPv4Address(ip)
                 if (method != correct_method or type(size) is not int):
-                    break
+                    continue
                 if (status in correct_status):
                     if (status in status_dict):
                         status_dict[status] += 1
                     else:
                         status_dict[status] = 1
                 else:
-                    break
+                    continue
 
                 final_size += size
 
                 if ((idx + 1) % 10 == 0 and idx != 0):
-                    print("File size: {}".format(final_size))
-                    for i in correct_status:
-                        if (i in status_dict):
-                            print("{}: {}".format(i, status_dict[i]))
+                    print_metrics()
             except Exception:
                 pass
+        print_metrics()
     except KeyboardInterrupt as err:
-        print("File size: {}".format(final_size))
-        for i in correct_status:
-            if (i in status_dict):
-                print("{}: {}".format(i, status_dict[i]))
+        print_metrics()
         raise
