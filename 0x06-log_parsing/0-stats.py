@@ -43,7 +43,7 @@ if __name__ == "__main__":
                         if (i in status_dict):
                             print("{}: {}".format(i, status_dict[i]))
             except Exception:
-                break
+                pass
     except KeyboardInterrupt as err:
         print("File size: {}".format(final_size))
         for i in correct_status:
