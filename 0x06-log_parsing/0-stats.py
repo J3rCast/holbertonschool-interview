@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""This module contains some methods for computing metrics"""
 import sys
 import ipaddress
 from time import sleep
