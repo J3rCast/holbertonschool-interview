@@ -3,7 +3,7 @@
 import sys
 import ipaddress
 from time import sleep
-from dateutil.parser import parse
+
 
 
 try:
@@ -24,7 +24,6 @@ try:
 
         try:
             ipaddress.IPv4Address(ip)
-            parse(date)
             if (method != correct_method or type(size) is not int):
                 break
             if (status in correct_status):
