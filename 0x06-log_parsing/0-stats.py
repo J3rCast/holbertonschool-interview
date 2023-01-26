@@ -24,14 +24,14 @@ if __name__ == "__main__":
         for idx, i in enumerate(data):
             splited = i.split(" ")
 
-            ip = splited[0]
-            date = \
-                splited[2].replace("[", "") + " " + splited[3].replace("]", "")
-            method = splited[4] + " " + splited[5] + " " + splited[6]
-            status = int(splited[7])
-            size = int(splited[8])
 
             try:
+                ip = splited[0]
+                date = \
+                    splited[2].replace("[", "") + " " + splited[3].replace("]", "")
+                method = splited[4] + " " + splited[5] + " " + splited[6]
+                status = int(splited[7])
+                size = int(splited[8])
                 ipaddress.IPv4Address(ip)
                 if (method != correct_method or type(size) is not int):
                     continue
