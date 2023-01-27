@@ -45,6 +45,7 @@ if __name__ == "__main__":
                 if ((idx + 1) % 10 == 0 and idx != 0):
                     print_metrics()
             except Exception as e:
+                print(e)
                 pass
         print_metrics()
     except KeyboardInterrupt as err:
