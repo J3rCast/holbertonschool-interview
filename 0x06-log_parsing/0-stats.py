@@ -5,7 +5,7 @@ import sys
 
 data = sys.stdin
 correct_method = "\"GET /projects/260 HTTP/1.1\""
-correct_status = [200, 301, 400, 401, 403, 404, 405, 500]
+correct_status = ["200", "301", "400", "401", "403", "404", "405", "500"]
 final_size = 0
 status_dict = {}
 
@@ -29,7 +29,7 @@ if __name__ == "__main__":
                 date = splited[1]\
                     .replace("[", "") + " " + splited[2].replace("]", "")
                 method = splited[3] + " " + splited[4] + " " + splited[5]
-                status = int(splited[6])
+                status = splited[6]
                 size = int(splited[7])
                 if (method != correct_method or type(size) is not int):
                     continue
