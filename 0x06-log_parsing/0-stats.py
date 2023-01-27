@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """This module contains some methods for computing metrics"""
 import sys
-import ipaddress
 
 
 data = sys.stdin
@@ -40,7 +39,6 @@ if __name__ == "__main__":
                     else:
                         status_dict[status] = 1
 
-                ipaddress.IPv4Address(ip)
                 final_size += size
 
                 if ((idx + 1) % 10 == 0 and idx != 0):
