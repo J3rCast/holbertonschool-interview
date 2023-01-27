@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """This module contains some methods for computing metrics"""
 import sys
-import ipaddress
 from time import sleep
 
 
@@ -22,16 +21,17 @@ def print_metrics():
 if __name__ == "__main__":
     try:
         for idx, i in enumerate(data):
+            i = i.replace("-", " ", 1)
+            i = i.replace("  ", "")
             splited = i.split(" ")
 
             try:
                 ip = splited[0]
-                date = splited[2]\
-                    .replace("[", "") + " " + splited[3].replace("]", "")
-                method = splited[4] + " " + splited[5] + " " + splited[6]
-                status = int(splited[7])
-                size = int(splited[8])
-                ipaddress.IPv4Address(ip)
+                date = splited[1]\
+                    .replace("[", "") + " " + splited[2].replace("]", "")
+                method = splited[3] + " " + splited[4] + " " + splited[5]
+                status = int(splited[6])
+                size = int(splited[7])
                 if (method != correct_method or type(size) is not int):
                     continue
                 if (status in correct_status):
@@ -39,15 +39,12 @@ if __name__ == "__main__":
                         status_dict[status] += 1
                     else:
                         status_dict[status] = 1
-                else:
-                    continue
 
                 final_size += size
 
                 if ((idx + 1) % 10 == 0 and idx != 0):
                     print_metrics()
             except Exception as e:
-                print(e)
                 pass
         print_metrics()
     except KeyboardInterrupt as err:
