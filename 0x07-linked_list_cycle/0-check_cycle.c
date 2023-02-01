@@ -19,7 +19,7 @@ int check_cycle(listint_t *list)
 	while (temp != NULL && temp != list)
 		temp = temp->next;
 
-	if (temp == list)
+	if (temp == list && temp)
 		return (1);
 
 	return (0);
