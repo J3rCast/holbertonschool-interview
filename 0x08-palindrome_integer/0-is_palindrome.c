@@ -24,7 +24,7 @@ int getLen(int *arr)
  */
 int *toArray(unsigned long n)
 {
-	static int buffer[20];
+	static int buffer[100];
 	int i = 0;
 	unsigned long digit = 0;
 
