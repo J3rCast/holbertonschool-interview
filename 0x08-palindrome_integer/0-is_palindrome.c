@@ -6,11 +6,11 @@
  *
  * Return: return the length of the array.
  */
-int getLen(int *arr)
+int getLen(char *arr)
 {
 	int i = 0;
 
-	while (arr[i] != '\0')
+	while (arr[i])
 		i++;
 
 	return (i - 1);
@@ -22,9 +22,9 @@ int getLen(int *arr)
  *
  * Return: an inversed array of number
  */
-int *toArray(unsigned long n)
+char *toArray(unsigned long n)
 {
-	static int buffer[20];
+	static char buffer[100];
 	int i = 0;
 	unsigned long digit = 0;
 
@@ -32,7 +32,7 @@ int *toArray(unsigned long n)
 	{
 		digit = n % 10;
 		n = n / 10;
-		buffer[i] = digit;
+		buffer[i] = digit + '0';
 		i++;
 	}
 	digit = n % 10;
@@ -47,7 +47,7 @@ int *toArray(unsigned long n)
  */
 int is_palindrome(unsigned long n)
 {
-	int *reverseNumber;
+	char *reverseNumber;
 	int i = 0;
 	int len = 0;
 
