@@ -62,8 +62,6 @@ avl_t *avl_tree(avl_t *head, int *array, int start, int end)
 	if (node == NULL)
 		return (NULL);
 
-	// printf("start = %d, end = %d, mid = %d, value = %d\n", start, end, mid, array[mid]);
-
 	if (mid != start)
 		node->left = avl_tree(node, array, start, mid - 1);
 	if (mid != end)
