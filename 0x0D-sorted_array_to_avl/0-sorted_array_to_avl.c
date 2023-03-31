@@ -15,7 +15,7 @@ avl_t *create_node(avl_t *parent, int value)
 	node = malloc(sizeof(avl_t));
 	if (node == NULL)
 		return (NULL);
-	
+
 	node->left = NULL;
 	node->right = NULL;
 	node->parent = parent;
@@ -44,7 +44,7 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
  * @head: head of the tree.
  * @array: array to convert into the new tree.
  * @start: start of the array(recursively pourposes).
- * @array: end of the array(recursively pourposes).
+ * @end: end of the array(recursively pourposes).
  *
  * Return: root of the new tree.
  */
